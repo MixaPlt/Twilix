@@ -14,5 +14,6 @@ bool  glInit()
 
 	glDisableClientState(GL_NORMAL_ARRAY);
 	glDisableClientState(GL_COLOR_ARRAY);
+
 	return 1;
 }

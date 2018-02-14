@@ -158,11 +158,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Events.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Resources.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Events.h" />
     <ClInclude Include="GlInit.hpp" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Resources.h" />
