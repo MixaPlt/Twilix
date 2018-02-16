@@ -5,6 +5,7 @@ sf::Time Events::mouseLeftDown;
 sf::Time Events::mouseRightDown;
 sf::Time Events::mouseLeftUp;
 sf::Time Events::mouseRightUp;
+bool Events::exit = 0;
 
 void Events::Init()
 {
@@ -36,6 +37,8 @@ void Events::pollEvents(sf::RenderWindow &window)
 				mouseRightUp = mainClock.getElapsedTime();
 		}
 	}
+	if (exit)
+		window.close();
 }
 
 Events::Events()

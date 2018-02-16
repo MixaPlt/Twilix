@@ -1,7 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
-
+#include "Poll.h"
+#include <queue>
 
 class Events
 {
@@ -15,5 +16,7 @@ public:
 	static sf::Time mouseLeftUp;
 	static sf::Time mouseRightUp;
 	static void pollEvents(sf::RenderWindow &window);
+	static bool exit;
+	static std::queue <Poll> eventPoll;
 };
 

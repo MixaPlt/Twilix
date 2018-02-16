@@ -9,15 +9,16 @@
 class MenuButton
 {
 public:
-	MenuButton(std::string content, sf::Vector2f &size, sf::Vector2f &position);
+	MenuButton(sf::RenderWindow &window, std::string content, sf::Vector2f &size, sf::Vector2f &position);
 	~MenuButton();
 	void setContent(std::string content);
-	void setSize(sf::Vector2f &size);
+	void setSize(const sf::Vector2f &size);
 	void setFontSize(unsigned int size);	
-	void setPosition(sf::Vector2f &position);
-	void draw(sf::RenderWindow &window);
+	void setPosition(const sf::Vector2f &position);
+	void draw();
 	bool isPressed();
-	bool isMouseOver(sf::RenderWindow &window);
+	bool isMouseOver();
+	void update();
 private:
 	sf::RectangleShape rectshape;
 	sf::Text text;
@@ -28,6 +29,8 @@ private:
 	bool isClick;
 	sf::Time lastClick;
 	sf::Time overTime;
+	sf::RenderWindow &window;
 	bool mouseOver;
+	unsigned int fontSize;
 };
 
