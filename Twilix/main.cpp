@@ -17,8 +17,9 @@ int main()
 	contextSettings.depthBits = 24;
 	contextSettings.sRgbCapable = 0;
 
-	sf::RenderWindow window(sf::VideoMode(1024, 660), "Govno", sf::Style::Default, contextSettings);
+	sf::RenderWindow window(sf::VideoMode(1024, 660), "Govno", sf::Style::Close, contextSettings);
 	
+
 
 	MenuButton button(window, "button", sf::Vector2f(300.f, 100.f), sf::Vector2f(700.f, 100.f));
 
@@ -46,7 +47,6 @@ int main()
 
 		// Clear the depth buffer
 		glClear(GL_DEPTH_BUFFER_BIT);
-
 		window.pushGLStates();
 		window.clear(sf::Color::Blue);
 		window.draw(shape);
@@ -55,6 +55,7 @@ int main()
 		window.draw(fpsText);
 		window.popGLStates();
 		window.display();
+		Sleep(1);
 	}
 
 	return 0;

@@ -29,10 +29,15 @@ void MainMenu::update()
 			choise = i;
 		}
 	}
-	
 	if (onclick)
 	{
-
+		switch (choise)
+		{
+			case 3:
+			{
+				Events::eventPoll.push(Poll::Closed);
+			}
+		}
 	}
 }
 

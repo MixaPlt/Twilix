@@ -1,11 +1,35 @@
 #pragma once
 class Poll
 {
+	struct Type
+	{
+		unsigned int val;
+		bool operator == (const Type &a)
+		{
+			if (a.val == val)
+				return 1;
+			return 0;
+		}
+		bool operator == (unsigned int &a)
+		{
+			if (a == val)
+				return 1;
+			return 0;
+		}
+		void operator = (const unsigned int &a)
+		{
+			val = a;
+		}
+		Type(const unsigned int &a)
+		{
+			val = a;
+		}
+	};
+
 public:
-	Poll(unsigned int event);
+	Poll(const Type &type);
 	~Poll();
-	unsigned int event;
-	static const unsigned int Exit = 0;
-	static const unsigned int MainMenuItemSelected = 1;
+	Type type;
+	static const Type Closed;
 };
 

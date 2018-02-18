@@ -3,6 +3,7 @@
 #include <SFML/OpenGL.hpp>
 #include "Poll.h"
 #include <queue>
+#include <iostream>
 
 class Events
 {
@@ -16,7 +17,9 @@ public:
 	static sf::Time mouseLeftUp;
 	static sf::Time mouseRightUp;
 	static void pollEvents(sf::RenderWindow &window);
-	static bool exit;
 	static std::queue <Poll> eventPoll;
+private:
+	static sf::Event event;
+	static Poll poll;
 };
 

@@ -1,9 +1,9 @@
 #include "Poll.h"
 
+const Poll::Type Poll::Closed(0);
 
-
-Poll::Poll(unsigned int _event) :
-	event(_event)
+Poll::Poll(const Type &_type) :
+	type(_type)
 {
 
 }

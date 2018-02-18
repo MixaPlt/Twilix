@@ -5,7 +5,9 @@ sf::Time Events::mouseLeftDown;
 sf::Time Events::mouseRightDown;
 sf::Time Events::mouseLeftUp;
 sf::Time Events::mouseRightUp;
-bool Events::exit = 0;
+sf::Event Events::event;
+std::queue<Poll> Events::eventPoll;
+Poll Events::poll(0);
 
 void Events::Init()
 {
@@ -14,7 +16,6 @@ void Events::Init()
 
 void Events::pollEvents(sf::RenderWindow &window)
 {
-	sf::Event event;
 	while (window.pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
@@ -37,8 +38,15 @@ void Events::pollEvents(sf::RenderWindow &window)
 				mouseRightUp = mainClock.getElapsedTime();
 		}
 	}
-	if (exit)
-		window.close();
+	while (!eventPoll.empty())
+	{
+		poll = eventPoll.front();
+		if(poll.type == Poll::Closed)
+		{
+			window.close();
+		}
+		eventPoll.pop();
+	}
 }
 
 Events::Events()
