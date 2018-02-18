@@ -14,7 +14,7 @@ bool Resources::Init()
 	return 1;
 }
 
-sf::Font* Resources::getSansation()
+sf::Font& Resources::getSansation()
 {
-	return Resources::sansation;
+	return *Resources::sansation;
 }

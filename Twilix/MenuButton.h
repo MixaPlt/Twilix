@@ -22,7 +22,6 @@ public:
 private:
 	sf::RectangleShape rectshape;
 	sf::Text text;
-	sf::Font font;
 	sf::Vector2f position;
 	sf::Vector2f size;
 	static sf::Color b_color, o_color;

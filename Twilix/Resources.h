@@ -7,7 +7,7 @@ class Resources
 public:
 	Resources();
 	static bool Init();
-	static sf::Font* getSansation();
+	static sf::Font& getSansation();
 private:
 	static sf::Font* sansation;
 };

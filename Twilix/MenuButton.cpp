@@ -12,8 +12,8 @@ MenuButton::MenuButton(sf::RenderWindow &_window, std::string _content, sf::Vect
 	mouseOver = 0;
 	rectshape.setFillColor(b_color);
 
-	font = *Resources::getSansation();
-	text.setFont(font);
+	//font = Resources::getSansation();
+	text.setFont(Resources::getSansation());
 	
 	rectshape.setOutlineThickness(1);
 

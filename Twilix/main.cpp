@@ -17,8 +17,8 @@ int main()
 	contextSettings.depthBits = 24;
 	contextSettings.sRgbCapable = 0;
 
-	sf::RenderWindow window(sf::VideoMode(1024, 768), "Govno", sf::Style::Default, contextSettings);
-	window.setVerticalSyncEnabled(true);
+	sf::RenderWindow window(sf::VideoMode(1024, 660), "Govno", sf::Style::Default, contextSettings);
+	
 
 	MenuButton button(window, "button", sf::Vector2f(300.f, 100.f), sf::Vector2f(700.f, 100.f));
 
@@ -27,12 +27,22 @@ int main()
 	sf::CircleShape shape(60.f, 9);
 	shape.setFillColor(sf::Color::Cyan);
 
+	sf::Text fpsText("FPS: ", Resources::getSansation(), 30);
+	fpsText.setPosition(sf::Vector2f(0.f, 630.f));
+
 	sf::Clock clock;
+
+	int a = 0;
 	while (window.isOpen())
 	{
 		Events::pollEvents(window);
-		button.setContent(std::to_string(10000 / (clock.getElapsedTime().asMilliseconds() + 0.01)));
-		clock.restart();
+		a++;
+		if (clock.getElapsedTime().asMilliseconds() > 400)
+		{
+			fpsText.setString("FPS: " + std::to_string(int(1000000.f / clock.getElapsedTime().asMicroseconds() * a)));
+			a = 0;
+			clock.restart();
+		}
 
 		// Clear the depth buffer
 		glClear(GL_DEPTH_BUFFER_BIT);
@@ -40,8 +50,9 @@ int main()
 		window.pushGLStates();
 		window.clear(sf::Color::Blue);
 		window.draw(shape);
-		button.draw();
 		mainMenu.draw();
+		button.draw();
+		window.draw(fpsText);
 		window.popGLStates();
 		window.display();
 	}
