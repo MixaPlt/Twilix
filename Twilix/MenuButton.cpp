@@ -68,7 +68,6 @@ bool MenuButton::isMouseOver()
 	{
 		lastClick = Events::mouseLeftUp;
 		isClick = 1;
-		std::cout << "KEK!!!";
 	}
 
 	sf::Vector2i m_position = sf::Mouse::getPosition(window);

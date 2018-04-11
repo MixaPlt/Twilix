@@ -8,14 +8,13 @@
 class MainMenu
 {
 public:
-	MainMenu(sf::RenderWindow &window);
+	MainMenu();
 	~MainMenu();
 	void draw();
 	void update();
 	bool onClick();
 	int choise;
 private:
-	sf::RenderWindow &window;
 	static const std::vector <std::string> strings;
 	MenuButton* buttons[4];
 	bool onclick;

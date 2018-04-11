@@ -10,20 +10,15 @@
 
 int main()
 {
-	Resources::Init();
-	
-
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 24;
 	contextSettings.sRgbCapable = 0;
 
 	sf::RenderWindow window(sf::VideoMode(1024, 660), "Govno", sf::Style::Close, contextSettings);
-	
 
+	Resources::Init(window);
 
-	MenuButton button(window, "button", sf::Vector2f(300.f, 100.f), sf::Vector2f(700.f, 100.f));
-
-	MainMenu mainMenu (window);
+	MainMenu mainMenu;
 
 	sf::CircleShape shape(60.f, 9);
 	shape.setFillColor(sf::Color::Cyan);
@@ -51,7 +46,6 @@ int main()
 		window.clear(sf::Color::Blue);
 		window.draw(shape);
 		mainMenu.draw();
-		button.draw();
 		window.draw(fpsText);
 		window.popGLStates();
 		window.display();

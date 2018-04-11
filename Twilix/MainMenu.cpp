@@ -2,12 +2,11 @@
 
 const std::vector <std::string> MainMenu::strings = {"Multiplayer", "Singleplayer", "Settings", "Exit"};
 
-MainMenu::MainMenu(sf::RenderWindow &_window)
-	:window(_window)
+MainMenu::MainMenu()
 {
 	for (size_t i = 0; i < strings.size(); i++)
 	{
-		buttons[i] = new MenuButton(window, strings[i], sf::Vector2f(400.f, 100.f), sf::Vector2f(200.f, i*100.f));
+		buttons[i] = new MenuButton(Resources::mainWindow(), strings[i], sf::Vector2f(400.f, 100.f), sf::Vector2f(200.f, i*100.f));
 		buttons[i]->setFontSize(50);
 	}
 }

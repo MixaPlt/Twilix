@@ -164,6 +164,7 @@
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Poll.cpp" />
     <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="WindowMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Events.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Poll.h" />
     <ClInclude Include="Resources.h" />
+    <ClInclude Include="WindowMode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
